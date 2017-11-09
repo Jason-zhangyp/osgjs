@@ -458,7 +458,11 @@ utils.createPrototypeObject(
             this._texture = undefined;
             this._shadowedScene = undefined;
         },
-
+        noDraw: function() {
+            for (var i = 0, l = this._shadowMaps.length; i < l; i++) {
+                this._shadowMaps[i].noDraw();
+            }
+        },
         setDebug: function(enable, lightNum) {
             if (!lightNum) {
                 for (var i = 0, l = this._shadowMaps.length; i < l; i++) {
